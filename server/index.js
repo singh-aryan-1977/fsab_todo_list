@@ -1,11 +1,11 @@
-var Express = require("express");
-var MongoClient = require("mongodb").MongoClient;
-var cors = require("cors");
+let Express = require("express");
+let MongoClient = require("mongodb").MongoClient;
+let cors = require("cors");
 const multer = require("multer");
 require('dotenv').config();
 
 
-var app = Express();
+let app = Express();
 // const corsOptions = {
 //     origin: 'http://localhost:3001',
 //     methods: 'GET,POST,DELETE',
@@ -13,12 +13,11 @@ var app = Express();
 //   };
 app.use(cors());
 
-var DATABASENAME="sample";
-var connectionString = process.env.CONNECTIONSTRING;
-var database;
+let DATABASENAME="sample";
+let database;
 
 app.listen(3001,()=>{
-    MongoClient.connect(connectionString,(error,client)=>{
+    MongoClient.connect(process.env.CONNECTIONSTRING,(error,client)=>{
         database=client.db(DATABASENAME);
         console.log("CONNECTED TO MONGODB");
     })

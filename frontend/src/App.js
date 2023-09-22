@@ -30,7 +30,7 @@ class App extends Component {
   }
 
   async addClick() {
-    var newNotes = document.getElementById("newNotes").value;
+    let newNotes = document.getElementById("newNotes").value;
     const data = new FormData();
     data.append("newNotes", newNotes);
 
